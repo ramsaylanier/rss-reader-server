@@ -1,5 +1,7 @@
-import Sequelize from 'sequelize'
-
-const connection = new Sequelize('postgres://postgres:Tr!ppsd0g@localhost:5432/reruled_dev');
+import mongoose from 'mongoose'
+const connection = mongoose.connect('mongodb://localhost/testrssschema_dev', {
+  useMongoClient: true,
+  promiseLibrary: global.Promise 
+});
 
 export default connection

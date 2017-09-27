@@ -1,20 +1,18 @@
-import createRule from './rule/createRule';
-import getRules from './rule/getRules';
-import createGame from './game/createGame';
-import getGames from './game/getGames';
+import getFeeds from './feed/get'
+import getFeed from './feed/getOne'
+import createFeed from './feed/create'
 
 const resolvers = {
   Query: {
-    rules: (obj, {authorId}) => {
-      return getRules();
+    feeds: (obj) => {
+      return getFeeds();
     },
-    games: (obj) => {
-      return getGames();
+    feed: (obj, {id}) => {
+      return getFeed(id);
     }
   },
   Mutation: {
-    createRule: createRule,
-    createGame: createGame
+    createFeed
   },
 };
 

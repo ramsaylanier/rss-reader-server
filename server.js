@@ -5,7 +5,6 @@ import bodyParser from 'body-parser';
 import graphQLSchema from './schema';
 import cors from 'cors';
 import database from './database'
-import seedGames from './util/seedGames'
 
 const PORT = 4000;
 const app = express();
@@ -39,8 +38,7 @@ app.use(
 );
 
 app.listen(PORT, (err, res) => {
-  database.authenticate().then(() => {
-    database.sync()
-    // seedGames()
+  database.then(db => {
+    console.log(db)
   })
 });

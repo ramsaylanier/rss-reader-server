@@ -2,27 +2,32 @@ const makeExecutableSchema = require('graphql-tools').makeExecutableSchema;
 const resolvers = require('../resolvers');
 
 const typeDefs = `
-  type Game {
+  type Feed {
     id: String!
-    title: String!
+    url: String
+    description: String
+    language: String
+    items: [FeedItem]
+    title: String
+    updatedAt: String
   }
 
-  type Rule {
-    id: String!
-    title: String!
-    content: String!
-    authorId: String!
-    game: [Game]
+  type FeedItem {
+    title: String
+    contributor: String
+    publisher: String
+    subject: [String]
+    link: String
+    description: String
   }
 
   type Query {
-    rules: [Rule]
-    games: [Game]
+    feeds: [Feed]
+    feed (id: String!): Feed
   }
 
   type Mutation {
-    createRule(title: String!, content: String!, authorId: Int!): Rule
-    createGame(title: String!): Game
+    createFeed(url: String!): Feed
   }
 `;
 
