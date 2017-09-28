@@ -1,6 +1,7 @@
 import getFeeds from './feed/get'
 import getFeed from './feed/getOne'
 import createFeed from './feed/create'
+import deleteFeed from './feed/delete'
 
 const resolvers = {
   Query: {
@@ -12,7 +13,8 @@ const resolvers = {
     }
   },
   Mutation: {
-    createFeed
+    createFeed,
+    deleteFeed
   },
 };
 

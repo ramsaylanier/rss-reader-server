@@ -28,6 +28,7 @@ const typeDefs = `
 
   type Mutation {
     createFeed(url: String!): Feed
+    deleteFeed(id: String!): String
   }
 `;
 
